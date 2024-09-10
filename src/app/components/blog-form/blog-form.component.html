@@ -1,0 +1,39 @@
+<div class="p-8 mt-4">
+  @if(isEdit){
+  <h4>Edit Blog</h4>
+  }@else{
+  <h4>Create Blog</h4>
+  }
+  <form [formGroup]="blogForm" (ngSubmit)="save()">
+    <div class="shadow p-6">
+      <div class="w-full flex flex-wrap">
+        <mat-form-field class="w-full">
+          <mat-label>User Name</mat-label>
+          <input type="text"
+                 matInput
+                 formControlName="userName" />
+        </mat-form-field>
+      </div>
+      <div class="w-full flex flex-wrap">
+        <mat-form-field class="w-full">
+          <mat-label>Text</mat-label>
+          <textarea matInput
+                    formControlName="text"></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        @if(isEdit){
+        <button mat-raised-button
+                color="primary" [disabled]="!blogForm.valid">
+          Update
+        </button>
+        }@else{
+        <button mat-raised-button
+                color="primary" [disabled]="!blogForm.valid">
+          Add
+        </button>
+        }
+      </div>
+    </div>
+  </form>
+</div>
