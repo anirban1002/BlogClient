@@ -6,7 +6,7 @@ import { IBlog } from './blog';
   providedIn: 'root'
 })
 export class BlogServiceService {
-  apiUrl = "https://localhost:7116/api";
+  apiUrl = "http://localhost:5018/api";
   http = inject(HttpClient)
   constructor() { }
 
