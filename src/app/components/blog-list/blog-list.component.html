@@ -1,22 +1,30 @@
-
-<div style="float: right; width: 1610px;"><button routerLink="/create-blog" class="button-1" mat-flat-button color="primary">New</button></div>
-{{message}}
-@if(blogList!=null && blogList.length>0){
-<mat-list>
-  @for (blog of blogList; track blog) {
-  <mat-list-item>
-    <div matListItemTitle style="border: 1px solid black;">{{blog.text}}</div>
-    <div class="row">
-      <div class="col" style="width: 100px;"><b>Created:</b> {{blog.userName}}</div>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <div class="col" style="width: 500px;"><b>Created Date:</b> {{datepipe.transform(blog.dateCreated, 'dd-MMM-YYYY')}}</div>
-      <div class="col" style="width: 50px;"><button class="button-1" color="primary" (click)="edit(blog.id!)">Edit</button></div>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <div class="last" style="width: 900px;"><button class="button-1" color="warn" (click)="delete(blog.id!)">Delete</button></div>
-    </div>
+<!--<div style="float: right; width: 1610px;"><button routerLink="/create-blog" class="button-1" mat-flat-button color="primary">New</button></div>-->
+<div class="mat-elevation-z8 w-full">
+  <div class="flex justify-end p-8" style="float: left;">
+    <button routerLink="/create-blog" mat-raised-button color="primary" class="button-1">
+      New
+    </button>
+  </div>
+  {{message}}
+  @if(blogList!=null && blogList.length>0){
+  <mat-list>
+    @for (blog of blogList; track blog) {
+    <mat-list-item style="border:1px solid">
+      <span matListItemTitle>{{blog.text}}</span>
+    </mat-list-item>
+    <mat-list-item>
+      <div class="row">
+        <span style="margin-right: 10px;"><b>Created:</b> {{blog.userName}}</span>
+        <span><b>Created Date:</b> {{datepipe.transform(blog.dateCreated, 'dd-MMM-YYYY')}}</span>
+      </div>
+    </mat-list-item>
+    <mat-list-item>
+      <span style="margin-right: 10px;"><button class="button-1" color="primary" (click)="edit(blog.id!)">Edit</button></span>
+      <span><button class="button-1" color="warn" (click)="delete(blog.id!)">Delete</button></span>
+    </mat-list-item>
     <div class="row"><div class="col" matListItemLine></div></div>
-  </mat-list-item>
-  }
-</mat-list>
-}
 
+    }
+  </mat-list>
+  }
+</div>
